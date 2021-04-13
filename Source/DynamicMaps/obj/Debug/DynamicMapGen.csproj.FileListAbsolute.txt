@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\1.2\Assemblies\DynamicMapGen.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\1.2\Assemblies\DynamicMapGen.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\Source\DynamicMapGen\obj\Debug\DynamicMapGen.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\Source\DynamicMapGen\obj\Debug\DynamicMapGen.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\Source\DynamicMapGen\obj\Debug\DynamicMapGen.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\Source\DynamicMapGen\obj\Debug\DynamicMapGen.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMapGen\Source\DynamicMapGen\obj\Debug\DynamicMapGen.csproj.CopyComplete

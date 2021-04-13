@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <GenStepDef>
+    <defName>KEP_PatchMaker</defName>
+    <order>200</order>
+    <genStep Class="DynamicMaps.KEP_Patchmaker" />
+  </GenStepDef>
+</Defs>
