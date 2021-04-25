@@ -55,7 +55,20 @@ namespace KEP.DynamicMaps
     internal static class PlantDensityPatch
     {
         public static Dictionary<int, float> cellPerlin = new Dictionary<int, float>();
+        //public static Dictionary<int, enum> cellMoisture = new Dictionary<int, enum>();
         public static ModuleBase PerlinNoise = null;
+        public enum tileMoisture
+        {
+            ExtremelyDry,
+            VeryDry,
+            Dry,
+            Moist,
+            Wet,
+            VertWet,
+            Submerged,
+            DeeplySubmerged
+
+        }
         internal static void Postfix(ref float __result, IntVec3 c, Map ___map)
         {
             float result = 0;

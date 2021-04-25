@@ -64,21 +64,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PatchMaker.cs" />
+    <Compile Include="NightChiller.cs" />
     <Compile Include="Template Related.cs" />
     <Compile Include="Universal Plants.cs" />
     <Compile Include="Weather.cs" />
-    <Compile Include="Plant Clustering.cs" />
+    <Compile Include="Dynamic Environment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="XML\Dynamic Template.xml" />
     <Content Include="XML\Universal Plants.xml" />
-    <Content Include="XML\Gensteps.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\Source\DynamicMaps\XML\*.xml" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\1.2\Defs"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\XML\*.xml" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\1.2\Defs"</PostBuildEvent>
   </PropertyGroup>
 </Project>

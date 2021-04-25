@@ -8,3 +8,9 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\Sour
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\Source\Assemblies\DynamicMaps.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\Assemblies\DynamicMaps.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\KEP DynamicMaps\Assemblies\DynamicMaps.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\1.2\Assemblies\DynamicMaps.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\1.2\Assemblies\DynamicMaps.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csprojAssemblyReference.cache
