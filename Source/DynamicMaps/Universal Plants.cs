@@ -10,7 +10,7 @@ using UnityEngine;
 using Verse;
 using Verse.Noise;
 
-namespace DynamicMapGen
+namespace DynamicMaps
 {
     [HarmonyPatch(typeof(WildPlantSpawner), "CalculatePlantsWhichCanGrowAt")]
     internal static class UniversalPlants
@@ -18,25 +18,29 @@ namespace DynamicMapGen
         internal static void Postfix(IntVec3 c, Map ___map, List<ThingDef> outPlants)
         {
             ThingDef thingDef;
-            thingDef = ThingDef.Named("DM_Pansy");
+            outPlants.Remove(ThingDef.Named("Plant_Dandelion"));
+            thingDef = ThingDef.Named("Plant_Dandelion");
             if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
             {
                 return;
             }
-            outPlants.Add(thingDef);
-            thingDef = ThingDef.Named("DM_Daffodil");
-            if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
+            if (GenLocalDate.Season(___map) == Season.Spring)
             {
-                return;
+                Log.Error("spring test");
+                outPlants.Add(thingDef);
             }
-            outPlants.Add(thingDef);
-            outPlants.Add(thingDef);
-            thingDef = ThingDef.Named("DM_Dandelion");
-            if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
-            {
-                return;
-            }
-            outPlants.Add(thingDef);
+            //thingDef = ThingDef.Named("DM_Pansy");
+            //if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
+            //{
+            //    return;
+            //}
+            //outPlants.Add(thingDef);
+            //thingDef = ThingDef.Named("DM_Daffodil");
+            //if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
+            //{
+            //    return;
+            //}
+            //outPlants.Add(thingDef);
         }
     }
     [HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
@@ -52,18 +56,40 @@ namespace DynamicMapGen
                 __result = 5;
         }
     }
-    [HarmonyPatch(typeof(Plant), "Graphic")]
-    internal static class PlantMaturityPatch
+    [StaticConstructorOnStartup]
+    public class DM_Plant : Plant
     {
-        static Graphic postfix(ref Graphic __result, ThingDef ___def, float growthInt)
+        public Graphic semiMatureGraphic;
+        private static Graphic GraphicSowing = GraphicDatabase.Get<Graphic_Single>("Things/Plant/Plant_Sowing", ShaderDatabase.Cutout, Vector2.one, Color.white);
+        public override Graphic Graphic
         {
-            Log.Error("testing maturitypatch");
-            if (___def.plant.immatureGraphic != null && growthInt > ___def.plant.harvestMinGrowth)
+            get
             {
-                return ___def.graphic;
-            }
-            return __result;
-        }
+                Graphic graphic = def.graphic;
 
+                if (LifeStage == PlantLifeStage.Sowing)
+                {
+                    graphic = GraphicSowing;
+                }
+                if (def.plant.leaflessGraphic != null && LeaflessNow && (!sown || !HarvestableNow))
+                {
+                    graphic = def.plant.leaflessGraphic;
+                }
+                if (def.HasModExtension<DM_ModExtension>())
+                {
+
+                    DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+                    if (ext.SemiMaturePath != null && Growth < 0.8f)
+                    {
+                        graphic = GraphicDatabase.Get(def.graphicData.graphicClass, ext.SemiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, graphic.colorTwo);
+                    }
+                }
+                if (def.plant.immatureGraphic != null && Growth < 0.5f)
+                {
+                    graphic = def.plant.immatureGraphic;
+                }
+                return graphic;
+            }
+        }
     }
 }

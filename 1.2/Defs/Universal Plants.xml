@@ -58,16 +58,22 @@
   </ThingDef>
 
   <ThingDef ParentName="PlantBase">
-    <defName>DM_Dandelion</defName>
+    <defName>Plant_Dandelion</defName>
     <label>dandelion</label>
     <description>A common yellow flower often viewed as a weed.</description>
+    <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>
       <Nutrition>0.25</Nutrition>
     </statBases>
+    <modExtensions>
+      <li Class="DynamicMaps.DM_ModExtension">
+        <SemiMaturePath>Dandelion/Dandelion</SemiMaturePath>
+      </li>
+    </modExtensions>
     <graphicData>
-      <texPath>Dandelion/Dandelion</texPath>
+      <texPath>Dandelion/OldDandelion</texPath>
       <graphicClass>Graphic_Random</graphicClass>
     </graphicData>
     <hideAtSnowDepth>0.5</hideAtSnowDepth>
@@ -77,7 +83,8 @@
       <harvestMinGrowth>0.70</harvestMinGrowth>
       <fertilityMin>0.05</fertilityMin>
       <fertilitySensitivity>0.3</fertilitySensitivity>
-      <growDays>2.5</growDays>
+      <growDays>5</growDays>
+      <lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
       <harvestWork>40</harvestWork>
       <maxMeshCount>9</maxMeshCount>
       <visualSizeRange>0.4~0.6</visualSizeRange>
@@ -90,6 +97,7 @@
     <defName>DM_OdeusFlower</defName>
     <label>odeus flower</label>
     <description>Placeholder</description>
+    <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>

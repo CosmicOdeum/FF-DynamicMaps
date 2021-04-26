@@ -64,8 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModExtension.cs" />
     <Compile Include="NightChiller.cs" />
-    <Compile Include="Template Related.cs" />
     <Compile Include="Universal Plants.cs" />
     <Compile Include="Weather.cs" />
     <Compile Include="Dynamic Environment.cs" />
