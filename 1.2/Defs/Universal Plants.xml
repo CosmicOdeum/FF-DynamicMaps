@@ -41,8 +41,9 @@
     </statBases>
     <modExtensions>
       <li Class="DynamicMaps.DM_ModExtension">
-        <SemiMaturePath>Dandelion/Dandelion</SemiMaturePath>
-        <Season>Spring</Season>
+        <season>Spring</season>
+        <commonality>3</commonality>
+        <spawnInNextSeason>true</spawnInNextSeason>
       </li>
     </modExtensions>
     <graphicData>
@@ -75,8 +76,10 @@
     </statBases>
     <modExtensions>
       <li Class="DynamicMaps.DM_ModExtension">
-        <SemiMaturePath>Dandelion/Dandelion</SemiMaturePath>
-        <Season>Spring</Season>
+        <semiMaturePath>Dandelion/Dandelion</semiMaturePath>
+        <season>Spring</season>
+        <commonality>3</commonality>
+        <spawnInNextSeason>true</spawnInNextSeason>
       </li>
     </modExtensions>
     <graphicData>

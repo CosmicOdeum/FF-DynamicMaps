@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +10,10 @@ namespace DynamicMaps
 {
     public class DM_ModExtension : DefModExtension
     {
-        public string SemiMaturePath;
-		public DM_Season Season;
-	}
-	public enum DM_Season
-	{
-		Undefined,
-		Spring,
-		Summer,
-		Autumn,
-		Winter
+        public string semiMaturePath;
+		public Season season;
+		public float commonality;
+		public bool spawnInPreviousSeason;
+		public bool spawnInNextSeason;
 	}
 }

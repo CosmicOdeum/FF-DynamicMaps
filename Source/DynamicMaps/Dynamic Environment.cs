@@ -57,7 +57,7 @@ namespace DynamicMaps
         public static Dictionary<int, float> cellPerlin = new Dictionary<int, float>();
         //public static Dictionary<int, enum> cellMoisture = new Dictionary<int, enum>();
         public static ModuleBase PerlinNoise = null;
-        public enum tileMoisture
+        public enum cellMoisture
         {
             ExtremelyDry,
             VeryDry,

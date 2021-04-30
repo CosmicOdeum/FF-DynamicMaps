@@ -26,59 +26,76 @@ namespace DynamicMaps
 				{
 					return;
 				}
-				if ((int)GenLocalDate.Season(___map) == (int)ext.Season)
+				if (GenLocalDate.Season(___map) == ext.season || (SeasonUtility.GetPreviousSeason(ext.season) == GenLocalDate.Season(___map) && ext.spawnInPreviousSeason) || (DMSeasonUtility.GetNextSeason(ext.season) == GenLocalDate.Season(___map) && ext.spawnInNextSeason))
 				{
 					outPlants.Add(thingDef);
 				}
-
 			}
 		}
 	}
 	[HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
 	internal static class UniversalPlantsCommonality
 	{
-		internal static void Postfix(ref float __result, ThingDef plant)
+		internal static void Postfix(ref float __result, Map ___map, ThingDef plant)
 		{
 			if (!plant.HasModExtension<DM_ModExtension>())
 			{
 				return;
 			}
-			if (plant.defName == "DM_Pansy")
-				__result = 3;
-			if (plant.defName == "DM_Daffodil")
-				__result = 3;
-			if (plant.defName == "DM_Dandelion")
-				__result = 3;
+			DM_ModExtension ext = plant.GetModExtension<DM_ModExtension>();
+			if (SeasonUtility.GetPreviousSeason(ext.season) == GenLocalDate.Season(___map) && ext.spawnInPreviousSeason)
+			{
+				__result = (ext.commonality / 2);
+				return;
+			}
+			__result = ext.commonality;
+		}
+	}
+	public static class DMSeasonUtility
+    {
+		public static Season GetNextSeason(this Season season)
+		{
+			switch (season)
+			{
+				case Season.Undefined:
+					return Season.Undefined;
+				case Season.Spring:
+					return Season.Summer;
+				case Season.Summer:
+					return Season.Fall;
+				case Season.Fall:
+					return Season.Winter;
+				case Season.Winter:
+					return Season.Spring;
+				case Season.PermanentSummer:
+					return Season.PermanentSummer;
+				case Season.PermanentWinter:
+					return Season.PermanentWinter;
+				default:
+					return Season.Undefined;
+			}
 		}
 	}
 	[StaticConstructorOnStartup]
 	public class DM_Plant : Plant
 	{
 		public Graphic semiMatureGraphic;
-		private static Graphic GraphicSowing = GraphicDatabase.Get<Graphic_Single>("Things/Plant/Plant_Sowing", ShaderDatabase.Cutout, Vector2.one, Color.white);
 		public override Graphic Graphic
 		{
 			get
 			{
-				Graphic graphic = def.graphic;
-
+				if (!def.HasModExtension<DM_ModExtension>())
+					return base.Graphic;
 				if (LifeStage == PlantLifeStage.Sowing)
-				{
-					graphic = GraphicSowing;
-				}
+					return base.Graphic;
 				if (def.plant.leaflessGraphic != null && LeaflessNow && (!sown || !HarvestableNow))
+					return base.Graphic;
+				DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+				Graphic graphic = def.graphic;
+				Graphic graphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.semiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, base.Graphic.colorTwo);
+				if (ext.semiMaturePath != null && Growth < 0.8f)
 				{
-					graphic = def.plant.leaflessGraphic;
-				}
-				if (def.HasModExtension<DM_ModExtension>())
-				{
-
-					DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
-					Graphic GraphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.SemiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, graphic.colorTwo);
-					if (ext.SemiMaturePath != null && Growth < 0.8f)
-					{
-						graphic = GraphicSemiMature;
-					}
+					graphic = graphicSemiMature;
 				}
 				if (def.plant.immatureGraphic != null && Growth < 0.5f)
 				{
