@@ -39,6 +39,12 @@
       <Flammability>1.3</Flammability>
       <Nutrition>0.25</Nutrition>
     </statBases>
+    <modExtensions>
+      <li Class="DynamicMaps.DM_ModExtension">
+        <SemiMaturePath>Dandelion/Dandelion</SemiMaturePath>
+        <Season>Spring</Season>
+      </li>
+    </modExtensions>
     <graphicData>
       <texPath>Daffodil</texPath>
       <graphicClass>Graphic_Random</graphicClass>
@@ -70,6 +76,7 @@
     <modExtensions>
       <li Class="DynamicMaps.DM_ModExtension">
         <SemiMaturePath>Dandelion/Dandelion</SemiMaturePath>
+        <Season>Spring</Season>
       </li>
     </modExtensions>
     <graphicData>

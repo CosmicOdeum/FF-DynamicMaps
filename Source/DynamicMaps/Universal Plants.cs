@@ -17,30 +17,21 @@ namespace DynamicMaps
     {
         internal static void Postfix(IntVec3 c, Map ___map, List<ThingDef> outPlants)
         {
-            ThingDef thingDef;
-            outPlants.Remove(ThingDef.Named("Plant_Dandelion"));
-            thingDef = ThingDef.Named("Plant_Dandelion");
-            if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
+            List<ThingDef> thingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
+            foreach (ThingDef thingDef in thingDefs.Where(x => x.HasModExtension<DM_ModExtension>()))
             {
-                return;
+                outPlants.Remove(thingDef);
+                DM_ModExtension ext = thingDef.GetModExtension<DM_ModExtension>();
+                if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
+                {
+                    return;
+                }
+                if ((int)GenLocalDate.Season(___map) == (int)ext.Season)
+                {
+                    outPlants.Add(thingDef);
+                }
+
             }
-            if (GenLocalDate.Season(___map) == Season.Spring)
-            {
-                Log.Error("spring test");
-                outPlants.Add(thingDef);
-            }
-            //thingDef = ThingDef.Named("DM_Pansy");
-            //if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
-            //{
-            //    return;
-            //}
-            //outPlants.Add(thingDef);
-            //thingDef = ThingDef.Named("DM_Daffodil");
-            //if (!thingDef.CanEverPlantAt_NewTemp(c, ___map))
-            //{
-            //    return;
-            //}
-            //outPlants.Add(thingDef);
         }
     }
     [HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
@@ -79,9 +70,10 @@ namespace DynamicMaps
                 {
 
                     DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+                    Graphic GraphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.SemiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, graphic.colorTwo);
                     if (ext.SemiMaturePath != null && Growth < 0.8f)
                     {
-                        graphic = GraphicDatabase.Get(def.graphicData.graphicClass, ext.SemiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, graphic.colorTwo);
+                        graphic = GraphicSemiMature;
                     }
                 }
                 if (def.plant.immatureGraphic != null && Growth < 0.5f)

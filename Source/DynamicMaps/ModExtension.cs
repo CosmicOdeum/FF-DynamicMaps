@@ -10,5 +10,14 @@ namespace DynamicMaps
     public class DM_ModExtension : DefModExtension
     {
         public string SemiMaturePath;
-    }
+		public DM_Season Season;
+	}
+	public enum DM_Season
+	{
+		Undefined,
+		Spring,
+		Summer,
+		Autumn,
+		Winter
+	}
 }
