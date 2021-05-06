@@ -12,7 +12,7 @@ namespace DynamicMaps
     {
         static starter()
         {
-            new Harmony("KEP.DynamicMapGen").PatchAll();
+            new Harmony("FF.DynamicMaps").PatchAll();
         }
     }
     //[HarmonyPatch(typeof(MouseoverReadout), "MouseoverReadoutOnGUI")]
@@ -49,7 +49,6 @@ namespace DynamicMaps
     //        //__result *= 2;
     //    }
     //}
-
 
     [HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
     internal static class PlantDensityPatch

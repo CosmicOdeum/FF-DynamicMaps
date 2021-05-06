@@ -13,6 +13,8 @@ namespace DynamicMaps
         public string semiMaturePath;
 		public Season season;
 		public float commonality;
+		public float semiMatureAt = 0.5f;
+		public float matureAt = 0.8f;
 		public bool spawnInPreviousSeason;
 		public bool spawnInNextSeason;
 	}

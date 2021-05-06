@@ -93,13 +93,17 @@ namespace DynamicMaps
 				DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
 				Graphic graphic = def.graphic;
 				Graphic graphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.semiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, base.Graphic.colorTwo);
-				if (ext.semiMaturePath != null && Growth < 0.8f)
+				if (def.plant.immatureGraphic != null)
+				{
+					graphic = def.plant.immatureGraphic;
+				}
+				if (ext.semiMaturePath != null && Growth > ext.semiMatureAt)
 				{
 					graphic = graphicSemiMature;
 				}
-				if (def.plant.immatureGraphic != null && Growth < 0.5f)
+				if (def.plant.immatureGraphic != null && Growth > ext.matureAt)
 				{
-					graphic = def.plant.immatureGraphic;
+					graphic = def.graphic;
 				}
 				return graphic;
 			}
