@@ -50,6 +50,21 @@ namespace DynamicMaps
     //    }
     //}
 
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt_NewTemp))]
+    internal static class CanPlantOnMap
+    {
+        internal static void Postfix(ref bool __result, ThingDef plantDef, Map map)
+        { 
+            if (__result && plantDef.HasModExtension<DM_ModExtension>())
+            {
+                DM_ModExtension ext = plantDef.GetModExtension<DM_ModExtension>();
+                Tile tile = Find.WorldGrid[map.Tile];
+                if (tile.rainfall < ext.minRainfall || tile.rainfall > ext.maxRainfall || tile.temperature < ext.minTemperature || tile.temperature > ext.maxTemperature)
+                    __result = false;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
     internal static class PlantDensityPatch
     {
@@ -73,7 +88,6 @@ namespace DynamicMaps
             float result = 0;
             if (!cellPerlin.ContainsKey(CellIndicesUtility.CellToIndex(c, c.x + c.y)))
             {
-                WorldGrid worldGrid = Find.WorldGrid;
                 var terrain = c.GetTerrain(___map);
                 float fertility = terrain.fertility;
                 var map = ___map;

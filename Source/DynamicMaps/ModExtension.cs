@@ -15,6 +15,10 @@ namespace DynamicMaps
 		public float commonality;
 		public float semiMatureAt = 0.5f;
 		public float matureAt = 0.8f;
+		public float minRainfall;
+		public float maxRainfall;
+		public float minTemperature;
+		public float maxTemperature;
 		public bool spawnInPreviousSeason;
 		public bool spawnInNextSeason;
 	}
