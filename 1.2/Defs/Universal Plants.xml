@@ -6,7 +6,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Pansy</defName>
     <label>pansy</label>
-    <description>A beautiful flower in many colors</description>
+    <description>A beautiful flower that comes in many colors. Pansies are hybrids derived from a wild violet known as heartsease.</description>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>
@@ -33,7 +33,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Daffodil</defName>
     <label>daffodil</label>
-    <description>A common yellow flower.</description>
+    <description>A common white and yellow flower that can grow in stony soil. Daffodils can survive the harsh cold of winter using their bulbs.</description>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>
@@ -53,9 +53,10 @@
     <hideAtSnowDepth>0.5</hideAtSnowDepth>
     <ingestible />
     <plant>
-      <fertilityMin>0.05</fertilityMin>
-      <fertilitySensitivity>0.3</fertilitySensitivity>
+      <fertilityMin>0.7</fertilityMin>
+      <fertilitySensitivity>0.4</fertilitySensitivity>
       <growDays>2.5</growDays>
+      <dieIfLeafless>false<dieIfLeafless>
       <harvestWork>40</harvestWork>
       <maxMeshCount>9</maxMeshCount>
       <visualSizeRange>0.4~0.6</visualSizeRange>
@@ -67,7 +68,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>Plant_Dandelion</defName>
     <label>dandelion</label>
-    <description>A common yellow flower often viewed as a weed.</description>
+    <description>A common yellow flower often viewed as a weed. The florets mature into whimsical puffs of wind-catching seeds. Some midworlds observe a tradition of blowing out a dandelion puff while making a wish.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
@@ -215,7 +216,7 @@
     </plant>
   </ThingDef>
 
-
+<!-- there's a typo in the defName -->
   <ThingDef ParentName="TreeBase">
     <defName>DM_GravekTwister</defName>
     <label>gravel twisters</label>
