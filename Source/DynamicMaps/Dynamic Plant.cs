@@ -40,26 +40,24 @@ namespace DynamicMaps
 				return graphic;
 			}
 		}
-		protected override bool Resting => isResting;
-		bool isResting
-		{
-			get
-			{
-				if (!def.HasModExtension<DM_ModExtension>())
-					return base.Resting;
-				DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
-				if (ext.needsRest)
-				{
-					if (!(GenLocalDate.DayPercent(this) < ext.growingHours.min))
-					{
-						return GenLocalDate.DayPercent(this) > ext.growingHours.max;
-					}
-					return true;
-				}
-				return false;
-				// returns the default Resting value without having to copy code
-				return base.Resting;
-			}
-		}
+		//protected override bool Resting => isResting;
+		//bool isResting
+		//{
+		//	get
+		//	{
+		//		if (!def.HasModExtension<DM_ModExtension>())
+		//			return base.Resting;
+		//		DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+		//		if (ext.needsRest)
+		//		{
+		//			if (!(GenLocalDate.DayPercent(this) < ext.growingHours.max))
+		//			{
+		//				return GenLocalDate.DayPercent(this) > ext.growingHours.min;
+		//			}
+		//			return true;
+		//		}
+		//		return false;
+		//	}
+		//}
 	}
 }
