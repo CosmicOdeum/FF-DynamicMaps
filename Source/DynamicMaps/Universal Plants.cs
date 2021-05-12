@@ -52,7 +52,7 @@ namespace DynamicMaps
 		}
 	}
 	public static class DMSeasonUtility
-    {
+	{
 		public static Season GetNextSeason(this Season season)
 		{
 			switch (season)
@@ -73,39 +73,6 @@ namespace DynamicMaps
 					return Season.PermanentWinter;
 				default:
 					return Season.Undefined;
-			}
-		}
-	}
-	[StaticConstructorOnStartup]
-	public class DM_Plant : Plant
-	{
-		public Graphic semiMatureGraphic;
-		public override Graphic Graphic
-		{
-			get
-			{
-				if (!def.HasModExtension<DM_ModExtension>())
-					return base.Graphic;
-				if (LifeStage == PlantLifeStage.Sowing)
-					return base.Graphic;
-				if (def.plant.leaflessGraphic != null && LeaflessNow && (!sown || !HarvestableNow))
-					return base.Graphic;
-				DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
-				Graphic graphic = def.graphic;
-				Graphic graphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.semiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, base.Graphic.colorTwo);
-				if (def.plant.immatureGraphic != null)
-				{
-					graphic = def.plant.immatureGraphic;
-				}
-				if (ext.semiMaturePath != null && Growth > ext.semiMatureAt)
-				{
-					graphic = graphicSemiMature;
-				}
-				if (def.plant.immatureGraphic != null && Growth > ext.matureAt)
-				{
-					graphic = def.graphic;
-				}
-				return graphic;
 			}
 		}
 	}

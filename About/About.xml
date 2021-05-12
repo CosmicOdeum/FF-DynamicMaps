@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <ModMetaData>
-	  <name>KEP: Dynamic Maps</name>
-	  <author>Odeum</author>
+	  <name>Dynamic Maps</name>
+	  <author>Freefolk</author>
 	  <supportedVersions>
 			<li>1.2</li>
 	  </supportedVersions>
-	  <packageId>KEP-Odeum.DynamicMaps</packageId>
+	  <packageId>FF-Odeum.DynamicMaps</packageId>
 	  <modDependencies>
 			<li>
 				<packageId>brrainz.harmony</packageId>

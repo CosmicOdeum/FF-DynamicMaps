@@ -8,9 +8,9 @@ using Verse;
 
 namespace DynamicMaps
 {
-    public class DM_ModExtension : DefModExtension
-    {
-        public string semiMaturePath;
+	public class DM_ModExtension : DefModExtension
+	{
+		public string semiMaturePath;
 		public Season season;
 		public float commonality;
 		public float semiMatureAt = 0.5f;
@@ -21,5 +21,7 @@ namespace DynamicMaps
 		public float maxTemperature;
 		public bool spawnInPreviousSeason;
 		public bool spawnInNextSeason;
+		public bool needsRest = true;
+		public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
 	}
 }
