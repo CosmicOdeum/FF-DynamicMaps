@@ -144,6 +144,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>Plant_Inkcap</defName>
     <label>inkcap</label>
+    <thingClass>DynamicMaps.DM_Plant</thingClass>
     <description>A small white mushroom that can sprout just about anywhere. Inkcaps decompose rapidly into a black liquid, though very young mushrooms are edible.</description>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
