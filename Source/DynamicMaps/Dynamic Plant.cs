@@ -24,40 +24,39 @@ namespace DynamicMaps
 					return base.Graphic;
 				DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
 				Graphic graphic = def.graphic;
-				Graphic graphicSemiMature = GraphicDatabase.Get(def.graphicData.graphicClass, ext.semiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, base.Graphic.colorTwo);
-				if (def.plant.immatureGraphic != null)
-				{
-					graphic = def.plant.immatureGraphic;
-				}
-				if (ext.semiMaturePath != null && Growth > ext.semiMatureAt)
-				{
-					graphic = graphicSemiMature;
-				}
-				if (def.plant.immatureGraphic != null && Growth > ext.matureAt)
-				{
-					graphic = def.graphic;
-				}
-				return graphic;
+                if (def.plant.immatureGraphic != null)
+                {
+                    graphic = def.plant.immatureGraphic;
+                }
+                if (ext.semiMaturePath != null && Growth > ext.semiMatureAt)
+                {
+                    graphic = GraphicDatabase.Get(def.graphicData.graphicClass, ext.semiMaturePath, def.graphic.Shader, def.graphicData.drawSize, def.graphicData.color, base.Graphic.colorTwo);
+                }
+                if (def.plant.immatureGraphic != null && Growth > ext.matureAt)
+                {
+                    graphic = def.graphic;
+                }
+                return graphic;
 			}
 		}
-		//protected override bool Resting => isResting;
-		//bool isResting
-		//{
-		//	get
-		//	{
-		//		if (!def.HasModExtension<DM_ModExtension>())
-		//			return base.Resting;
-		//		DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
-		//		if (ext.needsRest)
-		//		{
-		//			if (!(GenLocalDate.DayPercent(this) < ext.growingHours.max))
-		//			{
-		//				return GenLocalDate.DayPercent(this) > ext.growingHours.min;
-		//			}
-		//			return true;
-		//		}
-		//		return false;
-		//	}
-		//}
-	}
+        protected override bool Resting => isResting;
+        bool isResting
+        {
+            get
+            {
+                if (!def.HasModExtension<DM_ModExtension>())
+                    return base.Resting;
+                DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+                if (ext.needsRest)
+                {
+                    if (!(GenLocalDate.DayPercent(this) < ext.growingHours.max))
+                    {
+                        return GenLocalDate.DayPercent(this) > ext.growingHours.min;
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
 }

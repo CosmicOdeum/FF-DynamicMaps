@@ -16,7 +16,7 @@ namespace DynamicMaps
 		public float semiMatureAt = 0.5f;
 		public float matureAt = 0.8f;
 		public float minRainfall = -999;
-		public float maxRainfall = 999;
+		public float maxRainfall = 9999;
 		public float minTemperature = -999;
 		public float maxTemperature = 999;
 		public bool spawnInPreviousSeason;
