@@ -49,9 +49,9 @@ namespace DynamicMaps
                 DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
                 if (ext.needsRest)
                 {
-                    if (!(GenLocalDate.DayPercent(this) < ext.growingHours.max))
+                    if (!(GenLocalDate.DayPercent(this) < ext.growingHours.min))
                     {
-                        return GenLocalDate.DayPercent(this) > ext.growingHours.min;
+                        return GenLocalDate.DayPercent(this) > ext.growingHours.max;
                     }
                     return true;
                 }
