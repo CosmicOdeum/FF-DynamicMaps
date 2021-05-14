@@ -58,5 +58,58 @@ namespace DynamicMaps
                 return false;
             }
         }
+        public override bool HarvestableNow
+        {
+            get
+            {
+                DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+                if ((!def.HasModExtension<DM_ModExtension>() || ext.harvestMaxGrowth == null) && def.plant.Harvestable)
+                {
+                    return growthInt > def.plant.harvestMinGrowth;
+                }
+                if (def.plant.Harvestable && ext.harvestMaxGrowth != null)
+                {
+                    return growthInt < ext.harvestMaxGrowth;
+                }
+                return false;
+            }
+        }
+
+        public override bool IngestibleNow
+        {
+            get
+            {
+                if (!base.IngestibleNow)
+                {
+                    return false;
+                }
+                if (def.plant.IsTree)
+                {
+                    return true;
+                }
+                if (def.HasModExtension<DM_ModExtension>())
+                {
+                    DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+                    if (ext.harvestMaxGrowth != null && (growthInt > ext?.harvestMaxGrowth))
+                    {
+                        return false;
+                    }
+                }
+                if (growthInt < def.plant.harvestMinGrowth)
+                {
+                    return false;
+                }
+                if (LeaflessNow)
+                {
+                    return false;
+                }
+                if (base.Spawned && base.Position.GetSnowDepth(base.Map) > def.hideAtSnowDepth)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
     }
 }

@@ -14,3 +14,15 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\D
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.pdb
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csprojAssemblyReference.cache
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\1.2\Assemblies\DynamicMaps.dll
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\1.2\Assemblies\DynamicMaps.pdb
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csprojAssemblyReference.cache
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csproj.CoreCompileInputs.cache
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.dll
+C:\Users\Tides\Documents\GitHub\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\1.2\Assemblies\DynamicMaps.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\1.2\Assemblies\DynamicMaps.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\FF-DynamicMaps\Source\DynamicMaps\obj\Debug\DynamicMaps.pdb

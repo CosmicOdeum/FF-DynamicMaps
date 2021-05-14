@@ -23,5 +23,6 @@ namespace DynamicMaps
 		public bool spawnInNextSeason;
 		public bool needsRest = true;
 		public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
+		public float? harvestMaxGrowth;
 	}
 }

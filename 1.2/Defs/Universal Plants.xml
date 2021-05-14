@@ -156,6 +156,7 @@
         <season>Spring</season>
         <commonality>3</commonality>
         <spawnInNextSeason>true</spawnInNextSeason>
+        <harvestMaxGrowth>0.5</harvestMaxGrowth>
       </li>
     </modExtensions>
     <selectable>true</selectable>
@@ -167,11 +168,13 @@
     <ingestible />
     <plant>
       <immatureGraphicPath>Inkcap/ImmatureInkcap</immatureGraphicPath>
-      <harvestMinGrowth>0.70</harvestMinGrowth>
+      <harvestedThingDef>RawFungus</harvestedThingDef>
       <fertilityMin>0.5</fertilityMin>
       <fertilitySensitivity>0.25</fertilitySensitivity>
-      <growDays>2</growDays>
-      <lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
+      <growDays>1.5</growDays>
+      <harvestYield>5</harvestYield>
+      <harvestTag>Standard</harvestTag>
+      <lifespanDaysPerGrowDays>1.5</lifespanDaysPerGrowDays>
       <harvestWork>40</harvestWork>
       <maxMeshCount>4</maxMeshCount>
       <visualSizeRange>0.3~0.6</visualSizeRange>
@@ -179,6 +182,8 @@
       <wildOrder>3</wildOrder>
       <wildClusterRadius>3</wildClusterRadius>
       <wildClusterWeight>5</wildClusterWeight>
+      <harvestMinGrowth>0.05</harvestMinGrowth>
+      <purpose>Food</purpose>
 <!-- These are the extra tags I added that made the multistage graphics stop working, pretty sure it's the harvest thing but I haven't tested it yet
       <dieIfLeafless>true</dieIfLeafless>
       <growDays>2</growDays>
