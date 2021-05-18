@@ -68,7 +68,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>Plant_Dandelion</defName>
     <label>dandelion</label>
-    <description>A common yellow flower often viewed as a weed. The florets mature into whimsical puffs of wind-catching seeds. Some midworlds observe a tradition of blowing out a dandelion puff while making a wish.</description>
+    <description>A common yellow flower often viewed as a weed. The flowers mature into white puffs of wind-catching seeds.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
@@ -169,31 +169,25 @@
     <plant>
       <immatureGraphicPath>Inkcap/ImmatureInkcap</immatureGraphicPath>
       <harvestedThingDef>RawFungus</harvestedThingDef>
-      <fertilityMin>0.5</fertilityMin>
-      <fertilitySensitivity>0.25</fertilitySensitivity>
-      <growDays>1.5</growDays>
-      <harvestYield>5</harvestYield>
+      <fertilityMin>0.05</fertilityMin>
+      <fertilitySensitivity>0.15</fertilitySensitivity>
+      <growDays>4</growDays>
+      <harvestYield>20</harvestYield>
       <harvestTag>Standard</harvestTag>
-      <lifespanDaysPerGrowDays>1.5</lifespanDaysPerGrowDays>
+      <lifespanDaysPerGrowDays>0.25</lifespanDaysPerGrowDays>
       <harvestWork>40</harvestWork>
       <maxMeshCount>4</maxMeshCount>
-      <visualSizeRange>0.3~0.6</visualSizeRange>
-      <topWindExposure>0.5</topWindExposure>
-      <wildOrder>3</wildOrder>
+      <visualSizeRange>0.4~0.7</visualSizeRange>
+      <topWindExposure>0.05</topWindExposure>
+      <wildOrder>1</wildOrder>
       <wildClusterRadius>3</wildClusterRadius>
       <wildClusterWeight>5</wildClusterWeight>
       <harvestMinGrowth>0.05</harvestMinGrowth>
-      <purpose>Food</purpose>
-<!-- These are the extra tags I added that made the multistage graphics stop working, pretty sure it's the harvest thing but I haven't tested it yet
-      <dieIfLeafless>true</dieIfLeafless>
-      <growDays>2</growDays>
-      <harvestTag>Standard</harvestTag>
-      <harvestYield>20</harvestYield>
-      <harvestedThingDef>RawFungus</harvestedThingDef>
       <growMinGlow>0</growMinGlow>
       <growOptimalGlow>0</growOptimalGlow>
+      <dieIfLeafless>true</dieIfLeafless>
+      <purpose>Food</purpose>
       <neverBlightable>true</neverBlightable>
--->
     </plant>
   </ThingDef>
 
@@ -225,7 +219,6 @@
     </plant>
   </ThingDef>
 
-<!-- there's a typo in the defName -->
   <ThingDef ParentName="TreeBase">
     <defName>DM_GravekTwister</defName>
     <label>gravel twisters</label>

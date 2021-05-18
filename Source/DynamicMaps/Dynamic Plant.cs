@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace DynamicMaps
@@ -58,6 +59,8 @@ namespace DynamicMaps
                 return false;
             }
         }
+
+        // If a plant has a max harvest growth, make it harvestable if it hasn't grown too much.
         public override bool HarvestableNow
         {
             get
@@ -75,6 +78,7 @@ namespace DynamicMaps
             }
         }
 
+        // If a plant has a max harvest growth, make it inedible when outside harvest.
         public override bool IngestibleNow
         {
             get
@@ -109,6 +113,28 @@ namespace DynamicMaps
                 }
                 return true;
             }
+        }
+
+        // If a plant has a max harvest growth, reduce yield the older it gets.
+        public override int YieldNow()
+        {
+            if (!CanYieldNow())
+            {
+                return 0;
+            }
+            float harvestYield = def.plant.harvestYield;
+            float num;
+            DM_ModExtension ext = def.GetModExtension<DM_ModExtension>();
+            if (ext != null && ext.harvestMaxGrowth != null)
+            {
+                num = Mathf.InverseLerp((float)ext.harvestMaxGrowth, def.plant.harvestMinGrowth, growthInt);
+            }
+            else
+            {
+                num = Mathf.InverseLerp(def.plant.harvestMinGrowth, 1f, growthInt);
+            }
+            num = 0.5f + num * 0.5f;
+            return GenMath.RoundRandom(harvestYield * num * Mathf.Lerp(0.5f, 1f, (float)HitPoints / (float)base.MaxHitPoints) * Find.Storyteller.difficultyValues.cropYieldFactor);
         }
 
     }
