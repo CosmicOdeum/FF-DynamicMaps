@@ -133,6 +133,7 @@
       <growDays>6</growDays>
       <wildClusterRadius>4</wildClusterRadius>
       <wildClusterWeight>250</wildClusterWeight>
+      <maxMeshCount>9</maxMeshCount>
       <harvestWork>40</harvestWork>
       <visualSizeRange>0.7~1.1</visualSizeRange>
       <topWindExposure>0.20</topWindExposure>
@@ -141,7 +142,7 @@
   </ThingDef>
 
   <ThingDef ParentName="PlantBase">
-    <defName>Plant_Inkcap</defName>
+    <defName>DM_Inkcap</defName>
     <label>inkcap</label>
     <description>A small white mushroom that can sprout just about anywhere. Inkcaps decompose rapidly into a black liquid, though very young mushrooms are edible.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
@@ -154,8 +155,9 @@
       <li Class="DynamicMaps.DM_ModExtension">
         <semiMaturePath>Inkcap/Inkcap</semiMaturePath>
         <season>Spring</season>
-        <commonality>3</commonality>
+        <commonality>30</commonality>
         <spawnInNextSeason>true</spawnInNextSeason>
+        <needsRain>true</needsRain>
         <harvestMaxGrowth>0.5</harvestMaxGrowth>
       </li>
     </modExtensions>
@@ -164,7 +166,7 @@
       <texPath>Inkcap/OldInkcap</texPath>
       <graphicClass>Graphic_Random</graphicClass>
     </graphicData>
-    <hideAtSnowDepth>0.5</hideAtSnowDepth>
+    <hideAtSnowDepth>0.5</hideAtSnowDepth> 
     <ingestible />
     <plant>
       <immatureGraphicPath>Inkcap/ImmatureInkcap</immatureGraphicPath>
@@ -176,12 +178,12 @@
       <harvestTag>Standard</harvestTag>
       <lifespanDaysPerGrowDays>0.25</lifespanDaysPerGrowDays>
       <harvestWork>40</harvestWork>
-      <maxMeshCount>4</maxMeshCount>
-      <visualSizeRange>0.4~0.7</visualSizeRange>
       <topWindExposure>0.05</topWindExposure>
+      <visualSizeRange>0.4~0.7</visualSizeRange>
       <wildOrder>1</wildOrder>
-      <wildClusterRadius>3</wildClusterRadius>
-      <wildClusterWeight>5</wildClusterWeight>
+      <wildClusterRadius>4</wildClusterRadius>
+      <wildClusterWeight>250</wildClusterWeight>
+      <maxMeshCount>9</maxMeshCount>
       <harvestMinGrowth>0.05</harvestMinGrowth>
       <growMinGlow>0</growMinGlow>
       <growOptimalGlow>0</growOptimalGlow>

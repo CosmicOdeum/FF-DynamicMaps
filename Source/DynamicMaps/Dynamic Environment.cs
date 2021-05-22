@@ -53,14 +53,32 @@ namespace DynamicMaps
 	[HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt_NewTemp))]
 	internal static class CanPlantOnMap
 	{
-		internal static void Postfix(ref bool __result, ThingDef plantDef, Map map)
+		internal static void Postfix(ref bool __result, IntVec3 c, ThingDef plantDef, Map map)
 		{ 
 			if (__result && plantDef.HasModExtension<DM_ModExtension>())
 			{
 				DM_ModExtension ext = plantDef.GetModExtension<DM_ModExtension>();
 				Tile tile = Find.WorldGrid[map.Tile];
+				Log.Message("rainrate is " + map.weatherManager.curWeather.rainRate);
 				if (tile.rainfall < ext.minRainfall || tile.rainfall > ext.maxRainfall || tile.temperature < ext.minTemperature || tile.temperature > ext.maxTemperature)
+				{
 					__result = false;
+					return;
+				}
+				if (ext.needsRain && map.weatherManager.curWeather.rainRate < 1)
+				{
+					__result = false;
+					return;
+				}
+				if (__result == false)
+				{
+					return;
+				}
+				if (ext.needsRain && map.weatherManager.curWeather.rainRate >= 1)
+				{
+					GenSpawn.Spawn(plantDef, c, map);
+					__result = false;
+				}
 			}
 		}
 	}
@@ -116,7 +134,10 @@ namespace DynamicMaps
 			}
 			else
 			{
-				result = cellPerlin[CellIndicesUtility.CellToIndex(c, c.x + c.y)];
+				if (___map.weatherManager.curWeather.rainRate >= 1)
+					result = cellPerlin[CellIndicesUtility.CellToIndex(c, c.x + c.y)] * 10;
+				else
+					result = cellPerlin[CellIndicesUtility.CellToIndex(c, c.x + c.y)];
 				__result = result;
 				return;
 			}
