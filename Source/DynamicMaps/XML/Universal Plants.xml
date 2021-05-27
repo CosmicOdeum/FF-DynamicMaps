@@ -105,7 +105,7 @@
   </ThingDef>
 
   <ThingDef ParentName="BushBase">
-    <defName>Plant_Hydrangea</defName>
+    <defName>DM_Hydrangea</defName>
     <label>hydrangea</label>
     <description>A flowering shrub that grows well in areas with high rainfall. Hydrangeas produce large, bouquet-like flowerheads and are moderately toxic if eaten.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
@@ -138,6 +138,41 @@
       <visualSizeRange>0.7~1.1</visualSizeRange>
       <topWindExposure>0.20</topWindExposure>
       <wildOrder>2</wildOrder>
+    </plant>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>DM_Bluebell</defName>
+    <label>bluebell</label>
+    <description>A beautiful violet-blue flower often found in woodlands. In very old forests, it may carpet the understorey with its nodding blooms.</description>
+    <thingClass>DynamicMaps.DM_Plant</thingClass>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Flammability>1.3</Flammability>
+      <Nutrition>0.25</Nutrition>
+    </statBases>
+    <modExtensions>
+      <li Class="DynamicMaps.DM_ModExtension">
+        <season>Spring</season>
+        <commonality>3</commonality>
+        <spawnInNextSeason>true</spawnInNextSeason>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Bluebell</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <ingestible />
+    <plant>
+      <fertilityMin>0.7</fertilityMin>
+      <fertilitySensitivity>0.4</fertilitySensitivity>
+      <growDays>2.5</growDays>
+      <dieIfLeafless>false</dieIfLeafless>
+      <harvestWork>40</harvestWork>
+      <maxMeshCount>9</maxMeshCount>
+      <visualSizeRange>0.4~0.6</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <wildOrder>1</wildOrder>
     </plant>
   </ThingDef>
 
