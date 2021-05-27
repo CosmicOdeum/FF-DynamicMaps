@@ -155,7 +155,8 @@
       <li Class="DynamicMaps.DM_ModExtension">
         <season>Spring</season>
         <commonality>3</commonality>
-        <spawnInNextSeason>true</spawnInNextSeason>
+        <spawnInNextSeason>false</spawnInNextSeason>
+        <minRainfall>1000</minRainfall>
       </li>
     </modExtensions>
     <graphicData>
@@ -164,15 +165,17 @@
     </graphicData>
     <ingestible />
     <plant>
+      <wildClusterRadius>7</wildClusterRadius>
+      <wildClusterWeight>250</wildClusterWeight>
       <fertilityMin>0.7</fertilityMin>
       <fertilitySensitivity>0.4</fertilitySensitivity>
       <growDays>2.5</growDays>
       <dieIfLeafless>false</dieIfLeafless>
       <harvestWork>40</harvestWork>
       <maxMeshCount>9</maxMeshCount>
-      <visualSizeRange>0.4~0.6</visualSizeRange>
+      <visualSizeRange>0.3~0.6</visualSizeRange>
       <topWindExposure>0.4</topWindExposure>
-      <wildOrder>1</wildOrder>
+      <wildOrder>3</wildOrder>
     </plant>
   </ThingDef>
 
