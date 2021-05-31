@@ -9,7 +9,6 @@
     <description>A beautiful flower that comes in many colors. Pansies are hybrids derived from a wild violet known as heartsease.</description>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
-      <Flammability>1.3</Flammability>
       <Nutrition>0.25</Nutrition>
     </statBases>
     <graphicData>
@@ -33,8 +32,9 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Daffodil</defName>
     <label>daffodil</label>
-    <description>A common white and yellow flower that can grow in stony soil. Daffodils can survive the harsh cold of winter using their bulbs.</description>
+    <description>A pretty white and yellow flower that can grow in stony soil. Daffodils can survive the harsh cold of winter using their bulbs.</description>
     <statBases>
+      <Beauty>4</Beauty>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>
       <Nutrition>0.25</Nutrition>
@@ -66,14 +66,53 @@
   </ThingDef>
 
   <ThingDef ParentName="PlantBase">
-    <defName>Plant_Dandelion</defName>
-    <label>dandelion</label>
-    <description>A common yellow flower often viewed as a weed. The flowers mature into white puffs of wind-catching seeds.</description>
-    <thingClass>DynamicMaps.DM_Plant</thingClass>
+    <defName>DM_Trillium</defName>
+    <label>trillium</label>
+    <description>A small white flower often found in moist habitats. Its three prominent "leaves" are extensions of the flower itself.</description>
     <statBases>
+      <Beauty>5</Beauty>
       <MaxHitPoints>85</MaxHitPoints>
       <Flammability>1.3</Flammability>
       <Nutrition>0.25</Nutrition>
+    </statBases>
+    <modExtensions>
+      <li Class="DynamicMaps.DM_ModExtension">
+        <season>Spring</season>
+        <commonality>2</commonality>
+        <spawnInNextSeason>false</spawnInNextSeason>
+        <minRainfall>1100</minRainfall>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Trillium</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <hideAtSnowDepth>0.5</hideAtSnowDepth>
+    <ingestible />
+    <plant>
+      <fertilityMin>1</fertilityMin>
+      <fertilitySensitivity>0.8</fertilitySensitivity>
+      <growDays>7.5</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestWork>40</harvestWork>
+      <wildClusterRadius>3</wildClusterRadius>
+      <wildClusterWeight>4</wildClusterWeight>
+      <maxMeshCount>4</maxMeshCount>
+      <visualSizeRange>0.4~0.6</visualSizeRange>
+      <topWindExposure>0.4</topWindExposure>
+      <wildOrder>3</wildOrder>
+    </plant>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>Plant_Dandelion</defName>
+    <label>dandelion</label>
+    <description>A tiny yellow flower which grows in large clusters. Though it is often considered a weed, dandelions in bloom are quite beautiful.</description>
+    <thingClass>DynamicMaps.DM_Plant</thingClass>
+    <statBases>
+      <Beauty>4</Beauty>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.18</Nutrition>
     </statBases>
     <modExtensions>
       <li Class="DynamicMaps.DM_ModExtension">
@@ -93,21 +132,27 @@
       <immatureGraphicPath>Dandelion/ImmatureDandelion</immatureGraphicPath>
       <harvestMinGrowth>0.70</harvestMinGrowth>
       <fertilityMin>0.05</fertilityMin>
-      <fertilitySensitivity>0.3</fertilitySensitivity>
-      <growDays>5</growDays>
+      <fertilitySensitivity>0</fertilitySensitivity>
+      <growDays>2.5</growDays>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
       <lifespanDaysPerGrowDays>2</lifespanDaysPerGrowDays>
+      <wildClusterRadius>4</wildClusterRadius>
+      <wildClusterWeight>8</wildClusterWeight>
       <harvestWork>40</harvestWork>
-      <maxMeshCount>9</maxMeshCount>
-      <visualSizeRange>0.2~0.4</visualSizeRange>
-      <topWindExposure>0.4</topWindExposure>
+      <maxMeshCount>25</maxMeshCount>
+      <visualSizeRange>0.3~0.4</visualSizeRange>
+      <topWindExposure>0.3</topWindExposure>
       <wildOrder>1</wildOrder>
+      <purpose>Beauty</purpose>
     </plant>
   </ThingDef>
 
   <ThingDef ParentName="BushBase">
     <defName>DM_Hydrangea</defName>
     <label>hydrangea</label>
-    <description>A flowering shrub that grows well in areas with high rainfall. Hydrangeas produce large, bouquet-like flowerheads and are moderately toxic if eaten.</description>
+    <description>A flowering shrub that produces large, bouquet-like flowerheads.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <Flammability>1.3</Flammability>
@@ -117,6 +162,7 @@
         <season>Spring</season>
         <commonality>3</commonality>
         <spawnInNextSeason>true</spawnInNextSeason>
+        <minRainfall>900</minRainfall>
       </li>
     </modExtensions>
     <graphicData>
@@ -165,8 +211,8 @@
     </graphicData>
     <ingestible />
     <plant>
-      <wildClusterRadius>7</wildClusterRadius>
-      <wildClusterWeight>250</wildClusterWeight>
+      <wildClusterRadius>5</wildClusterRadius>
+      <wildClusterWeight>125</wildClusterWeight>
       <fertilityMin>0.7</fertilityMin>
       <fertilitySensitivity>0.4</fertilitySensitivity>
       <growDays>2.5</growDays>
@@ -182,7 +228,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Inkcap</defName>
     <label>inkcap</label>
-    <description>A small white mushroom that can sprout just about anywhere. Inkcaps decompose rapidly into a black liquid, though very young mushrooms are edible.</description>
+    <description>A shaggy white mushroom. They're edible when they first sprout, but they quickly decompose into a black liquid.</description>
     <thingClass>DynamicMaps.DM_Plant</thingClass>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
@@ -215,7 +261,6 @@
       <harvestYield>20</harvestYield>
       <harvestTag>Standard</harvestTag>
       <lifespanDaysPerGrowDays>0.25</lifespanDaysPerGrowDays>
-      <harvestWork>40</harvestWork>
       <topWindExposure>0.05</topWindExposure>
       <visualSizeRange>0.4~0.7</visualSizeRange>
       <wildOrder>1</wildOrder>
