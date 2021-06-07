@@ -6,7 +6,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Pansy</defName>
     <label>pansy</label>
-    <description>A beautiful flower that comes in many colors. Pansies are hybrids derived from a wild violet known as heartsease.</description>
+    <description>A beautiful flower that comes in many colors. It was long ago cultivated from a variety of wild violet.</description>
     <statBases>
       <MaxHitPoints>85</MaxHitPoints>
       <Nutrition>0.25</Nutrition>
@@ -32,7 +32,7 @@
   <ThingDef ParentName="PlantBase">
     <defName>DM_Daffodil</defName>
     <label>daffodil</label>
-    <description>A pretty yellow and orange flower. Daffodils can survive the harsh cold of winter using their bulbs.</description>
+    <description>A pretty white and yellow flower that grows from a bulb. Its great beauty has led it to symbolize everything from fortune and wealth to vanity and death.</description>
     <statBases>
       <Beauty>4</Beauty>
       <MaxHitPoints>85</MaxHitPoints>
@@ -59,7 +59,7 @@
       <dieIfLeafless>false</dieIfLeafless>
       <maxMeshCount>9</maxMeshCount>
       <wildClusterRadius>3</wildClusterRadius>
-      <wildClusterWeight>25</wildClusterWeight>
+      <wildClusterWeight>15</wildClusterWeight>
       <visualSizeRange>0.4~0.6</visualSizeRange>
       <topWindExposure>0.4</topWindExposure>
       <wildOrder>1</wildOrder>
@@ -94,6 +94,7 @@
       <fertilityMin>1</fertilityMin>
       <fertilitySensitivity>0.8</fertilitySensitivity>
       <growDays>7.5</growDays>
+      <maxMeshCount>4</maxMeshCount>
       <dieIfLeafless>true</dieIfLeafless>
       <wildClusterRadius>3</wildClusterRadius>
       <wildClusterWeight>25</wildClusterWeight>
